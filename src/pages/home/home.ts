@@ -123,11 +123,20 @@ export class HomePage {
       case 'mysql':
         iconString = 'assets/images/icon-mysql.png';
         break;
+      case 'engineering':
+        iconString = 'assets/images/icon-engineering.png';
+        break;
       case 'excel':
         iconString = 'assets/images/icon-excel.png';
         break;
+      case 'google analytics':
+        iconString = 'assets/images/icon-google-analytics.png';
+        break;
       case 'powerpoint':
         iconString = 'assets/images/icon-powerpoint.png';
+        break;
+      case 'rocketry':
+        iconString = 'assets/images/icon-rocketry.png';
         break;
       case 'tdd':
         iconString = 'assets/images/icon-tdd.png';
@@ -137,6 +146,18 @@ export class HomePage {
         break;
       case 'word':
         iconString = 'assets/images/icon-word.png';
+        break;
+      case 'facebook':
+        iconString = 'assets/images/icon-facebook.png';
+        break;
+      case 'facebook marketing':
+        iconString = 'assets/images/icon-facebook.png';
+        break;
+      case 'instagram':
+        iconString = 'assets/images/icon-instagram.png';
+        break;
+      case 'instagram marketing':
+        iconString = 'assets/images/icon-instagram.png';
         break;
       default:
         iconString = 'assets/images/icon-chip.png';
@@ -330,6 +351,34 @@ export class HomePage {
           { name: 'Ruby', level: 'expert' },
           { name: 'TDD', level: 'expert' },
           { name: 'Ruby on Rails', level: 'expert' },
+        ]
+      },
+      {
+        title: 'Head of Marketing',
+        description: 'We require a senior level marketer who will take us to the next level',
+        tags: ['marketing', 'communications', 'teamwork'],
+        company: { name: 'Eggzell', description: 'We are awesome and we know it.', company_logo_sm_url: 'https://s-media-cache-ak0.pinimg.com/736x/41/1a/48/411a4835d38ff899e55ce2802b08329c.jpg' },
+        skills: [
+          { name: 'instagram marketing', level: 'expert' },
+          { name: 'facebook marketing', level: 'expert' },
+          { name: 'google analytics', level: 'expert' },
+          { name: 'Word', level: 'experienced' },
+          { name: 'Powerpoint', level: 'proficient' },
+          { name: 'Excel', level: 'experienced' }
+        ]
+      },
+      {
+        title: 'Rocket Engineer',
+        description: 'We need someone to build us a freakin rocket',
+        tags: ['rocket', 'space', 'amazing'],
+        company: { name: 'SpaceX', description: 'To infinity, and beyond!', company_logo_sm_url: 'http://foundersguide.com/wp-content/uploads/2015/07/Fotolia_83951882_XS.jpg' },
+        skills: [
+          { name: 'rocketry', level: 'expert' },
+          { name: 'engineering', level: 'expert' },
+          { name: 'google analytics', level: 'expert' },
+          { name: 'Word', level: 'experienced' },
+          { name: 'Powerpoint', level: 'proficient' },
+          { name: 'Excel', level: 'experienced' }
         ]
       }
     ];
