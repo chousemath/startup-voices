@@ -3,16 +3,139 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Startup Voices</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h3>Latest Stories</h3>
+  <div class="custom-divider-1"></div>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <div class="slides-container">
+    <ion-slides loop slidesPerView=1.15>
+      <ion-slide *ngFor="let item of latest">
+        <div class="ion-card-container">
+          <ion-card>
+            <img [src]="item.post.cover_photo_md_url"/>
+            <ion-card-content>
+              <ion-card-title class="align-left">
+                {{item.post.title}}
+              </ion-card-title>
+              <p class="align-left">
+                {{item.post.description.slice(0, 80)}} <span *ngIf="item.post.description.length > 81">...</span>
+              </p>
+              <ion-list no-lines>
+                <ion-item class="remove-padding">
+                  <ion-avatar item-start>
+                    <img [src]="item.user.profile_photo_sm_url">
+                  </ion-avatar>
+                  <h2>{{item.user.name}}</h2>
+                  <h3>{{item.user.description_short}}</h3>
+                </ion-item>
+              </ion-list>
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="ion-card-container">
+          <ion-card>
+            <ion-card-header class="align-left">
+              More posts ordered by...
+            </ion-card-header>
+            <ion-list>
+              <button ion-item>
+                <ion-icon name="clock" item-start></ion-icon>
+                Date posted
+              </button>
+              <button ion-item>
+                <ion-icon name="heart" item-start></ion-icon>
+                Popularity
+              </button>
+            </ion-list>
+          </ion-card>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+
+
+  <h3>Popular Stories</h3>
+  <div class="custom-divider-1"></div>
+
+  <ion-card *ngFor="let item of popular">
+    <img [src]="item.post.cover_photo_md_url"/>
+    <ion-card-content>
+      <ion-card-title class="align-left">
+        {{item.post.title}}
+      </ion-card-title>
+      <p class="align-left">
+        {{item.post.description.slice(0, 80)}} <span *ngIf="item.post.description.length > 81">...</span>
+      </p>
+      <ion-list no-lines>
+        <ion-item class="remove-padding">
+          <ion-avatar item-start>
+            <img [src]="item.user.profile_photo_sm_url">
+          </ion-avatar>
+          <h2>{{item.user.name}}</h2>
+          <h3>{{item.user.description_short}}</h3>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{item.post.like_count}} Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{item.post.comment_count}} Comments</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <div class="more-button-container">
+    <button ion-button icon-left>
+      <ion-icon name="add"></ion-icon>
+      See more popular stories!
+    </button>
+  </div>
+
+
+  <h3>Startup Tech Stacks</h3>
+  <div class="custom-divider-1"></div>
+
+  <ion-card *ngFor="let item of stacks">
+    <ion-card-content>
+      <ion-card-title>
+        {{item.company.name}}
+      </ion-card-title>
+      <p>
+        <ion-badge class="tag-spacing" *ngFor="let tag of item.company.tags">{{tag}}</ion-badge>
+      </p>
+      <p>
+        {{item.company.description}}
+      </p>
+    </ion-card-content>
+    <ion-row *ngFor="let technology of item.technologies">
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="arrow-forward"></ion-icon>
+          <div>{{technology.name}}</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small color="dark">
+          <ion-icon name="star"></ion-icon>
+          <div>{{technology.category}}</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
 </ion-content>
