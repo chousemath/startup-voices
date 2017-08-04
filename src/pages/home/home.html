@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Startup Voices</ion-title>
+    <ion-title>Startup Voices Korea</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -137,5 +137,10 @@
       </ion-col>
     </ion-row>
   </ion-card>
+
+  <ion-searchbar
+    placeholder="Search for a post!"
+    (ionInput)="getItems($event)">
+  </ion-searchbar>
 
 </ion-content>
