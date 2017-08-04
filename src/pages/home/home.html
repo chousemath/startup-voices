@@ -3,12 +3,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Startup Voices Korea</ion-title>
+    <ion-title><span class="k-color">K</span><span class="s-color">S</span>tart</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Latest Stories</h3>
+  <h4>Latest Stories</h4>
   <div class="custom-divider-1"></div>
 
   <div class="slides-container">
@@ -30,7 +30,7 @@
                     <img [src]="item.user.profile_photo_sm_url">
                   </ion-avatar>
                   <h2>{{item.user.name}}</h2>
-                  <h3>{{item.user.description_short}}</h3>
+                  <p>{{item.user.description_short}}</p>
                 </ion-item>
               </ion-list>
             </ion-card-content>
@@ -65,7 +65,7 @@
 
 
 
-  <h3>Popular Stories</h3>
+  <h4>Popular Stories</h4>
   <div class="custom-divider-1"></div>
   <ion-card *ngFor="let item of popular">
     <img [src]="item.post.cover_photo_md_url"/>
@@ -82,7 +82,7 @@
             <img [src]="item.user.profile_photo_sm_url">
           </ion-avatar>
           <h2>{{item.user.name}}</h2>
-          <h3>{{item.user.description_short}}</h3>
+          <p>{{item.user.description_short}}</p>
         </ion-item>
       </ion-list>
     </ion-card-content>
@@ -110,7 +110,7 @@
   </div>
 
 
-  <h3>Startup Tech Stacks</h3>
+  <h4>Startup Tech Stacks</h4>
   <div class="custom-divider-1"></div>
 
   <ion-card *ngFor="let item of stacks">
@@ -124,6 +124,15 @@
       <p>
         {{item.company.description}}
       </p>
+      <ion-list no-lines>
+        <ion-item class="remove-padding">
+          <ion-avatar item-start>
+            <img [src]="item.user.profile_photo_sm_url">
+          </ion-avatar>
+          <h2>{{item.user.name}}</h2>
+          <p>{{item.user.description_short}}</p>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
     <ks-swiper-container [options]="example1SwipeOptions">
       <ks-swiper-slide *ngFor="let technology of item.technologies" style="background-color: #f0f8ff;">
@@ -142,12 +151,15 @@
   <div class="more-button-container">
     <button ion-button icon-left>
       <ion-icon name="add"></ion-icon>
-      See more technology stacks!
+      See more tech stacks!
     </button>
   </div>
 
+  <h4>Foreigner Friendly Jobs</h4>
+  <div class="custom-divider-1"></div>
+
   <ion-searchbar
-    placeholder="Search for a post!"
+    placeholder="Not sure? Try searching~"
     (ionInput)="getItems($event)">
   </ion-searchbar>
 

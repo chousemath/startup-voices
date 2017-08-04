@@ -45,7 +45,12 @@ export class HomePage {
     technologies: Array<{
       name: string,
       category: string
-    }>
+    }>,
+    user: {
+      name: string,
+      description_short: string,
+      profile_photo_sm_url: string
+    }
   }>;
   example1SwipeOptions: any;
   returnIcon: Function;
@@ -102,6 +107,9 @@ export class HomePage {
       case 'css':
         iconString = 'assets/images/icon-css.png';
         break;
+      case 'erlang':
+        iconString = 'assets/images/icon-erlang.png';
+        break;
       case 'html':
         iconString = 'assets/images/icon-html.png';
         break;
@@ -150,7 +158,7 @@ export class HomePage {
         },
         user: {
           name: 'Elon Musk',
-          description_short: 'Sed do eiusmod tempor incididunt ut labore.',
+          description_short: 'CEO of Tesla, SpaceX, and more!',
           profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg'
         }
       },
@@ -162,7 +170,7 @@ export class HomePage {
         },
         user: {
           name: 'Peter Thiel',
-          description_short: 'Sed do eiusmod tempor incididunt ut labore.',
+          description_short: 'CEO of Palantir and other stuff.',
           profile_photo_sm_url: 'http://static4.bornrichimages.com/cdn2/500/500/91/c/wp-content/uploads/2014/09/ptr_thumb.jpg'
         }
       },
@@ -174,7 +182,7 @@ export class HomePage {
         },
         user: {
           name: 'Jeff Bezos',
-          description_short: 'Sed do eiusmod tempor incididunt ut labore.',
+          description_short: 'CEO of Amazon baby, big jungle~',
           profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/669103856106668033/UF3cgUk4.jpg'
         }
       },
@@ -191,7 +199,7 @@ export class HomePage {
         },
         user: {
           name: 'Thomas Edison',
-          description_short: 'Sed do eiusmod tempor incididunt ut labore.',
+          description_short: 'CEO of Edison Electric',
           profile_photo_sm_url: 'http://s3.amazonaws.com/production.mediajoint.prx.org/public/piece_images/323254/Thomas_Edison_small.jpg'
         }
       },
@@ -205,7 +213,7 @@ export class HomePage {
         },
         user: {
           name: 'Nikola Tesla',
-          description_short: 'Sed do eiusmod tempor incididunt ut labore.',
+          description_short: 'CEO of Brooksfield Electric',
           profile_photo_sm_url: 'https://s3.amazonaws.com/teleautomaton-images/Nikola_Teslabig.jpg'
         }
       },
@@ -219,7 +227,7 @@ export class HomePage {
         },
         user: {
           name: 'Michael Faraday',
-          description_short: 'Sed do eiusmod tempor incididunt ut labore.',
+          description_short: 'Inventor of Light',
           profile_photo_sm_url: 'https://s-media-cache-ak0.pinimg.com/736x/64/a5/d9/64a5d944615d871f4933bf93235b8e7e--michael-faraday-michael-okeefe.jpg'
         }
       },
@@ -249,7 +257,12 @@ export class HomePage {
           { name: 'CSS', category: 'Language' },
           { name: 'SCSS', category: 'Language' },
           { name: 'Javascript', category: 'Language' }
-        ]
+        ],
+        user: {
+          name: 'Joseph Choi',
+          description_short: 'CTO of Doc&Me',
+          profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg'
+        }
       },
       {
         company: {
@@ -260,8 +273,35 @@ export class HomePage {
         technologies: [
           { name: 'Ruby on Rails', category: 'Fullstack' },
           { name: 'HTML', category: 'Language' },
+          { name: 'Javascript', category: 'Language' },
           { name: 'CSS', category: 'Language' }
-        ]
+        ],
+        user: {
+          name: 'Steve Jobs',
+          description_short: 'CTO of Fruit Inc.',
+          profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg'
+        }
+      },
+      {
+        company: {
+          name: 'Intake',
+          tags: [ 'Ecommerce', 'Food and Beverages' ],
+          description: 'Intake is a very big company, so big, that it is massive.'
+        },
+        technologies: [
+          { name: 'Django', category: 'Fullstack' },
+          { name: 'Flask', category: 'Backend' },
+          { name: 'Python', category: 'Language' },
+          { name: 'Javascript', category: 'Language' },
+          { name: 'HTML', category: 'Language' },
+          { name: 'Erlang', category: 'Language' },
+          { name: 'CSS', category: 'Language' }
+        ],
+        user: {
+          name: 'Steve Wozniak',
+          description_short: 'COO of Fruit Inc.',
+          profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg'
+        }
       }
     ];
   }
