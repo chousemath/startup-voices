@@ -135,7 +135,7 @@
       </ion-list>
     </ion-card-content>
     <ks-swiper-container [options]="example1SwipeOptions">
-      <ks-swiper-slide *ngFor="let technology of item.technologies" style="background-color: #f0f8ff;">
+      <ks-swiper-slide *ngFor="let technology of item.technologies" class="slider-background">
         <ion-row>
           <ion-col>
             <button ion-button clear small color="dark">
@@ -155,8 +155,43 @@
     </button>
   </div>
 
-  <h4>Foreigner Friendly Jobs</h4>
+  <h4>Foreigner-Friendly Jobs</h4>
   <div class="custom-divider-1"></div>
+
+  <ion-card *ngFor="let item of jobs">
+    <ion-card-content>
+      <ion-card-title>
+        {{item.title}}
+      </ion-card-title>
+      <p>
+        <ion-badge class="tag-spacing" *ngFor="let tag of item.tags">{{tag}}</ion-badge>
+      </p>
+      <p>
+        {{item.description}}
+      </p>
+      <ion-list no-lines>
+        <ion-item class="remove-padding">
+          <ion-avatar item-start>
+            <img [src]="item.company.company_logo_sm_url">
+          </ion-avatar>
+          <h2>{{item.company.name}}</h2>
+          <p>{{item.company.description}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ks-swiper-container [options]="example1SwipeOptions">
+      <ks-swiper-slide *ngFor="let skill of item.skills" class="slider-background">
+        <ion-row>
+          <ion-col>
+            <button ion-button clear small color="dark">
+              <img [src]="returnIcon(skill.name)" class="tech-icon">
+              <div>{{skill.name}} ({{skill.level}})</div>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ks-swiper-slide>
+    </ks-swiper-container>
+  </ion-card>
 
   <ion-searchbar
     placeholder="Not sure? Try searching~"

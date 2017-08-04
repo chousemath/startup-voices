@@ -9,49 +9,29 @@ import {KSSwiperSlide, KSSwiperContainer} from '../../../node_modules/angular2-s
 })
 export class HomePage {
   latest: Array<{
-    post: {
-      title: string,
-      description: string,
-      cover_photo_md_url: string
-    },
-    user: {
-      name: string,
-      description_short: string,
-      profile_photo_sm_url: string
-    }
+    post: { title: string, description: string, cover_photo_md_url: string },
+    user: { name: string, description_short: string, profile_photo_sm_url: string}
   }>;
 
   popular: Array<{
-    post: {
-      title: string,
-      description: string,
-      cover_photo_md_url: string,
-      like_count: number,
-      comment_count: number
-    },
-    user: {
-      name: string,
-      description_short: string,
-      profile_photo_sm_url: string
-    }
+    post: { title: string, description: string, cover_photo_md_url: string, like_count: number, comment_count: number },
+    user: { name: string, description_short: string, profile_photo_sm_url: string }
   }>;
 
   stacks: Array<{
-    company: {
-      name: string,
-      tags: Array<string>,
-      description: string
-    },
-    technologies: Array<{
-      name: string,
-      category: string
-    }>,
-    user: {
-      name: string,
-      description_short: string,
-      profile_photo_sm_url: string
-    }
+    company: { name: string, tags: Array<string>, description: string },
+    technologies: Array<{ name: string, category: string }>,
+    user: { name: string, description_short: string, profile_photo_sm_url: string }
   }>;
+
+  jobs: Array<{
+    title: string,
+    description: string,
+    tags: Array<string>,
+    company: { name: string, description: string, company_logo_sm_url: string },
+    skills: Array<{ name: string, level: string }>
+  }>;
+
   example1SwipeOptions: any;
   returnIcon: Function;
   constructor(public navCtrl: NavController) {
@@ -134,8 +114,29 @@ export class HomePage {
       case 'scss':
         iconString = 'assets/images/icon-sass.png';
         break;
+      case 'sql':
+        iconString = 'assets/images/icon-sql.png';
+        break;
       case 'typescript':
         iconString = 'assets/images/icon-typescript.png';
+        break;
+      case 'mysql':
+        iconString = 'assets/images/icon-mysql.png';
+        break;
+      case 'excel':
+        iconString = 'assets/images/icon-excel.png';
+        break;
+      case 'powerpoint':
+        iconString = 'assets/images/icon-powerpoint.png';
+        break;
+      case 'tdd':
+        iconString = 'assets/images/icon-tdd.png';
+        break;
+      case 'test driven development':
+        iconString = 'assets/images/icon-tdd.png';
+        break;
+      case 'word':
+        iconString = 'assets/images/icon-word.png';
         break;
       default:
         iconString = 'assets/images/icon-chip.png';
@@ -289,6 +290,7 @@ export class HomePage {
           description: 'Intake is a very big company, so big, that it is massive.'
         },
         technologies: [
+          { name: 'MySql', category: 'Database' },
           { name: 'Django', category: 'Fullstack' },
           { name: 'Flask', category: 'Backend' },
           { name: 'Python', category: 'Language' },
@@ -302,6 +304,33 @@ export class HomePage {
           description_short: 'COO of Fruit Inc.',
           profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg'
         }
+      }
+    ];
+
+
+    // jobs: Array<{
+    //   title: string,
+    //   description: string,
+    //   tags: Array<string>,
+    //   company: { name: string, description: string, company_logo_sm_url: string },
+    //   skills: Array<{ name: string, level: string }>,
+    //   user: { name: string, description_short: string, profile_photo_sm_url: string }
+    // }>;
+
+    this.jobs = [
+      {
+        title: 'Senior Ruby Developer',
+        description: 'We require a senior level ruby on rails developer to build our SaaS product',
+        tags: ['ruby', 'engineering', 'senior'],
+        company: { name: 'RubyMine', description: 'We mine rubies like dwarves, we harvest the money like it is our job.', company_logo_sm_url: 'https://s-media-cache-ak0.pinimg.com/236x/9e/1e/f2/9e1ef294cdba515c09d013d37ec7a231--geometric-logo-geometric-designs.jpg' },
+        skills: [
+          { name: 'Word', level: 'experienced' },
+          { name: 'Powerpoint', level: 'proficient' },
+          { name: 'Excel', level: 'experienced' },
+          { name: 'Ruby', level: 'expert' },
+          { name: 'TDD', level: 'expert' },
+          { name: 'Ruby on Rails', level: 'expert' },
+        ]
       }
     ];
   }
