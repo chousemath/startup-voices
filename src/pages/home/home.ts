@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {KSSwiperSlide, KSSwiperContainer} from '../../../node_modules/angular2-swiper/dist/ks-swiper';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [KSSwiperSlide, KSSwiperContainer]
 })
 export class HomePage {
   latest: Array<{
@@ -45,7 +47,100 @@ export class HomePage {
       category: string
     }>
   }>;
+  example1SwipeOptions: any;
+  returnIcon: Function;
   constructor(public navCtrl: NavController) {
+
+    this.returnIcon = function(techName: string): string {
+      let iconString: string;
+      switch(techName.toLowerCase()) {
+      case 'angular':
+        iconString = 'assets/images/icon-angular.png';
+        break;
+      case 'angularjs':
+        iconString = 'assets/images/icon-angular.png';
+        break;
+      case 'angular 1':
+        iconString = 'assets/images/icon-angular.png';
+        break;
+      case 'angular 2':
+        iconString = 'assets/images/icon-angular.png';
+        break;
+      case 'angular 4':
+        iconString = 'assets/images/icon-angular.png';
+        break;
+      case 'django':
+        iconString = 'assets/images/icon-django.png';
+        break;
+      case 'flask':
+        iconString = 'assets/images/icon-flask.png';
+        break;
+      case 'ionic':
+        iconString = 'assets/images/icon-ionic.png';
+        break;
+      case 'ionic 1':
+        iconString = 'assets/images/icon-ionic.png';
+        break;
+      case 'ionic 2':
+        iconString = 'assets/images/icon-ionic.png';
+        break;
+      case 'ionic 3':
+        iconString = 'assets/images/icon-ionic.png';
+        break;
+      case 'rails':
+        iconString = 'assets/images/icon-ruby.png';
+        break;
+      case 'ruby on rails':
+        iconString = 'assets/images/icon-ruby.png';
+        break;
+      case 'tornado':
+        iconString = 'assets/images/icon-python.png';
+        break;
+      case 'wordpress':
+        iconString = 'assets/images/icon-wordpress.png';
+        break;
+      case 'css':
+        iconString = 'assets/images/icon-css.png';
+        break;
+      case 'html':
+        iconString = 'assets/images/icon-html.png';
+        break;
+      case 'javascript':
+        iconString = 'assets/images/icon-javascript.png';
+        break;
+      case 'php':
+        iconString = 'assets/images/icon-php.png';
+        break;
+      case 'python':
+        iconString = 'assets/images/icon-python.png';
+        break;
+      case 'ruby':
+        iconString = 'assets/images/icon-ruby.png';
+        break;
+      case 'rust':
+        iconString = 'assets/images/icon-rust.png';
+        break;
+      case 'sass':
+        iconString = 'assets/images/icon-sass.png';
+        break;
+      case 'scss':
+        iconString = 'assets/images/icon-sass.png';
+        break;
+      case 'typescript':
+        iconString = 'assets/images/icon-typescript.png';
+        break;
+      default:
+        iconString = 'assets/images/icon-chip.png';
+      }
+      return iconString;
+    }
+
+    this.example1SwipeOptions = {
+      loop: true,
+      autoplay: 2000,
+      speed: 750
+    };
+
     this.latest = [
       {
         post: {
@@ -141,7 +236,19 @@ export class HomePage {
           { name: 'Ruby on Rails', category: 'Backend' },
           { name: 'Flask', category: 'Backend' },
           { name: 'WordPress', category: 'CMS' },
-          { name: 'AngularJS', category: 'Frontend' }
+          { name: 'AngularJS', category: 'Frontend' },
+          { name: 'Angular 4', category: 'Frontend' },
+          { name: 'Ionic 1', category: 'Frontend' },
+          { name: 'Ionic 3', category: 'Frontend' },
+          { name: 'Ruby', category: 'Language' },
+          { name: 'Python', category: 'Language' },
+          { name: 'Typescript', category: 'Language' },
+          { name: 'PHP', category: 'Language' },
+          { name: 'Rust', category: 'Language' },
+          { name: 'HTML', category: 'Language' },
+          { name: 'CSS', category: 'Language' },
+          { name: 'SCSS', category: 'Language' },
+          { name: 'Javascript', category: 'Language' }
         ]
       },
       {
@@ -151,7 +258,9 @@ export class HomePage {
           description: 'Seniors & Youth use fullstack Ruby on Rails to drive it\'s Korean language education business.'
         },
         technologies: [
-          { name: 'Ruby on Rails', category: 'Fullstack' }
+          { name: 'Ruby on Rails', category: 'Fullstack' },
+          { name: 'HTML', category: 'Language' },
+          { name: 'CSS', category: 'Language' }
         ]
       }
     ];

@@ -25,6 +25,7 @@
     "@ionic-native/splash-screen": "3.12.1",
     "@ionic-native/status-bar": "3.12.1",
     "@ionic/storage": "2.0.1",
+    "angular2-swiper": "^0.8.1",
     "angularfire2": "^4.0.0-rc.1",
     "autoprefixer": "^7.1.2",
     "firebase": "^4.2.0",

@@ -52,6 +52,10 @@
                 <ion-icon name="heart" item-start></ion-icon>
                 Popularity
               </button>
+              <button ion-item>
+                <ion-icon name="eye" item-start></ion-icon>
+                Most views
+              </button>
             </ion-list>
           </ion-card>
         </div>
@@ -63,7 +67,6 @@
 
   <h3>Popular Stories</h3>
   <div class="custom-divider-1"></div>
-
   <ion-card *ngFor="let item of popular">
     <img [src]="item.post.cover_photo_md_url"/>
     <ion-card-content>
@@ -122,21 +125,26 @@
         {{item.company.description}}
       </p>
     </ion-card-content>
-    <ion-row *ngFor="let technology of item.technologies">
-      <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="arrow-forward"></ion-icon>
-          <div>{{technology.name}}</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-left clear small color="dark">
-          <ion-icon name="star"></ion-icon>
-          <div>{{technology.category}}</div>
-        </button>
-      </ion-col>
-    </ion-row>
+    <ks-swiper-container [options]="example1SwipeOptions">
+      <ks-swiper-slide *ngFor="let technology of item.technologies" style="background-color: #f0f8ff;">
+        <ion-row>
+          <ion-col>
+            <button ion-button clear small color="dark">
+              <img [src]="returnIcon(technology.name)" class="tech-icon">
+              <div>{{technology.name}} ({{technology.category}})</div>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ks-swiper-slide>
+    </ks-swiper-container>
   </ion-card>
+
+  <div class="more-button-container">
+    <button ion-button icon-left>
+      <ion-icon name="add"></ion-icon>
+      See more technology stacks!
+    </button>
+  </div>
 
   <ion-searchbar
     placeholder="Search for a post!"

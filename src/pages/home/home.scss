@@ -23,6 +23,12 @@ page-home {
     padding: 0;
   }
 
+  .swipe-help-message {
+    font-style: italic;
+    color: silver;
+    margin: 10px 0 0 0;
+  }
+
   .slides-container {
     height: 63vh;
   }
@@ -35,5 +41,10 @@ page-home {
 
   .tag-spacing {
     margin: 0 5px 5px 0;
+  }
+
+  .tech-icon {
+    height: 25px;
+    margin-right: 5px;
   }
 }
