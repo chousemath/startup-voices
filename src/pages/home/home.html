@@ -7,22 +7,23 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h4>Latest Stories</h4>
-  <div class="custom-divider-1"></div>
-
+<ion-content>
+  <div padding>
+    <h4>Latest Stories</h4>
+    <div class="custom-divider-0"></div>
+  </div>
   <div class="slides-container">
     <ion-slides loop slidesPerView=1.15>
       <ion-slide *ngFor="let item of latest">
         <div class="ion-card-container">
           <ion-card>
-            <img [src]="item.post.cover_photo_md_url"/>
+            <img [src]="item.post.cover_photo_md_url" (click)="goToStoriesPage(item)"/>
             <ion-card-content>
-              <ion-card-title class="align-left">
+              <ion-card-title class="align-left" (click)="goToStoriesPage(item)">
                 {{item.post.title}}
               </ion-card-title>
-              <p class="align-left">
-                {{item.post.description.slice(0, 80)}} <span *ngIf="item.post.description.length > 81">...</span>
+              <p class="align-left" (click)="goToStoriesPage(item)">
+                {{item.post.description.slice(0, 90)}} <span *ngIf="item.post.description.length > 91">...</span>
               </p>
               <ion-list no-lines>
                 <ion-item class="remove-padding">
@@ -37,43 +38,28 @@
           </ion-card>
         </div>
       </ion-slide>
-      <ion-slide>
-        <div class="ion-card-container">
-          <ion-card>
-            <ion-card-header class="align-left">
-              More posts ordered by...
-            </ion-card-header>
-            <ion-list>
-              <button ion-item>
-                <ion-icon name="clock" item-start></ion-icon>
-                Date posted
-              </button>
-              <button ion-item>
-                <ion-icon name="heart" item-start></ion-icon>
-                Popularity
-              </button>
-              <button ion-item>
-                <ion-icon name="eye" item-start></ion-icon>
-                Most views
-              </button>
-            </ion-list>
-          </ion-card>
-        </div>
-      </ion-slide>
     </ion-slides>
   </div>
 
+  <div class="more-button-container">
+    <button ion-button icon-left (click)="goToStoriesPage({})">
+      <ion-icon name="add"></ion-icon>
+      See the latest stories
+    </button>
+  </div>
 
 
-  <h4>Popular Stories</h4>
-  <div class="custom-divider-1"></div>
+  <div padding>
+    <h4>Popular Stories</h4>
+    <div class="custom-divider-1"></div>
+  </div>
   <ion-card *ngFor="let item of popular">
-    <img [src]="item.post.cover_photo_md_url"/>
+    <img [src]="item.post.cover_photo_md_url" (click)="goToStoriesPage(item)"/>
     <ion-card-content>
-      <ion-card-title class="align-left">
+      <ion-card-title class="align-left" (click)="goToStoriesPage(item)">
         {{item.post.title}}
       </ion-card-title>
-      <p class="align-left">
+      <p class="align-left" (click)="goToStoriesPage(item)">
         {{item.post.description.slice(0, 80)}} <span *ngIf="item.post.description.length > 81">...</span>
       </p>
       <ion-list no-lines>
@@ -103,16 +89,16 @@
   </ion-card>
 
   <div class="more-button-container">
-    <button ion-button icon-left>
+    <button ion-button icon-left (click)="goToStoriesPage({})">
       <ion-icon name="add"></ion-icon>
       See more popular stories!
     </button>
   </div>
 
-
-  <h4>Startup Tech Stacks</h4>
-  <div class="custom-divider-1"></div>
-
+  <div padding>
+    <h4>Startup Tech Stacks</h4>
+    <div class="custom-divider-1"></div>
+  </div>
   <ion-card *ngFor="let item of stacks">
     <ion-card-content>
       <ion-card-title>
@@ -155,8 +141,10 @@
     </button>
   </div>
 
-  <h4>Foreigner-Friendly Jobs</h4>
-  <div class="custom-divider-1"></div>
+  <div padding>
+    <h4>Foreigner-Friendly Jobs</h4>
+    <div class="custom-divider-1"></div>
+  </div>
 
   <ion-card *ngFor="let item of jobs">
     <ion-card-content>
@@ -193,9 +181,18 @@
     </ks-swiper-container>
   </ion-card>
 
+  <div class="more-button-container">
+    <button ion-button icon-left>
+      <ion-icon name="add"></ion-icon>
+      See more job openings!
+    </button>
+  </div>
+
   <ion-searchbar
     placeholder="Not sure? Try searching~"
     (ionInput)="getItems($event)">
   </ion-searchbar>
+
+  <button ion-button full color="dark" (click)="scrollToTop()">Back to top</button>
 
 </ion-content>

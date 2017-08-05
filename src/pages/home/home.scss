@@ -7,7 +7,13 @@ page-home {
     width: 85%;
     height: 3px;
     background-color: #000000;
-    margin-bottom: 10px;
+  }
+
+  .custom-divider-0 {
+    width: 85%;
+    height: 3px;
+    background-color: #000000;
+    margin-bottom: -17px;
   }
 
   .ion-card-container {
@@ -30,7 +36,7 @@ page-home {
   }
 
   .slides-container {
-    height: 63vh;
+    height: 70vh;
   }
 
   .more-button-container {

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, Content } from 'ionic-angular';
 import {KSSwiperSlide, KSSwiperContainer} from '../../../node_modules/angular2-swiper/dist/ks-swiper';
+import { StoriesPage } from '../stories/stories';
 
 @Component({
   selector: 'page-home',
@@ -8,6 +9,7 @@ import {KSSwiperSlide, KSSwiperContainer} from '../../../node_modules/angular2-s
   providers: [KSSwiperSlide, KSSwiperContainer]
 })
 export class HomePage {
+  @ViewChild(Content) content: Content;
   latest: Array<{
     post: { title: string, description: string, cover_photo_md_url: string },
     user: { name: string, description_short: string, profile_photo_sm_url: string}
@@ -33,138 +35,9 @@ export class HomePage {
   }>;
 
   example1SwipeOptions: any;
-  returnIcon: Function;
-  constructor(public navCtrl: NavController) {
-
-    this.returnIcon = function(techName: string): string {
-      let iconString: string;
-      switch(techName.toLowerCase()) {
-      case 'angular':
-        iconString = 'assets/images/icon-angular.png';
-        break;
-      case 'angularjs':
-        iconString = 'assets/images/icon-angular.png';
-        break;
-      case 'angular 1':
-        iconString = 'assets/images/icon-angular.png';
-        break;
-      case 'angular 2':
-        iconString = 'assets/images/icon-angular.png';
-        break;
-      case 'angular 4':
-        iconString = 'assets/images/icon-angular.png';
-        break;
-      case 'django':
-        iconString = 'assets/images/icon-django.png';
-        break;
-      case 'flask':
-        iconString = 'assets/images/icon-flask.png';
-        break;
-      case 'ionic':
-        iconString = 'assets/images/icon-ionic.png';
-        break;
-      case 'ionic 1':
-        iconString = 'assets/images/icon-ionic.png';
-        break;
-      case 'ionic 2':
-        iconString = 'assets/images/icon-ionic.png';
-        break;
-      case 'ionic 3':
-        iconString = 'assets/images/icon-ionic.png';
-        break;
-      case 'rails':
-        iconString = 'assets/images/icon-ruby.png';
-        break;
-      case 'ruby on rails':
-        iconString = 'assets/images/icon-ruby.png';
-        break;
-      case 'tornado':
-        iconString = 'assets/images/icon-python.png';
-        break;
-      case 'wordpress':
-        iconString = 'assets/images/icon-wordpress.png';
-        break;
-      case 'css':
-        iconString = 'assets/images/icon-css.png';
-        break;
-      case 'erlang':
-        iconString = 'assets/images/icon-erlang.png';
-        break;
-      case 'html':
-        iconString = 'assets/images/icon-html.png';
-        break;
-      case 'javascript':
-        iconString = 'assets/images/icon-javascript.png';
-        break;
-      case 'php':
-        iconString = 'assets/images/icon-php.png';
-        break;
-      case 'python':
-        iconString = 'assets/images/icon-python.png';
-        break;
-      case 'ruby':
-        iconString = 'assets/images/icon-ruby.png';
-        break;
-      case 'rust':
-        iconString = 'assets/images/icon-rust.png';
-        break;
-      case 'sass':
-        iconString = 'assets/images/icon-sass.png';
-        break;
-      case 'scss':
-        iconString = 'assets/images/icon-sass.png';
-        break;
-      case 'sql':
-        iconString = 'assets/images/icon-sql.png';
-        break;
-      case 'typescript':
-        iconString = 'assets/images/icon-typescript.png';
-        break;
-      case 'mysql':
-        iconString = 'assets/images/icon-mysql.png';
-        break;
-      case 'engineering':
-        iconString = 'assets/images/icon-engineering.png';
-        break;
-      case 'excel':
-        iconString = 'assets/images/icon-excel.png';
-        break;
-      case 'google analytics':
-        iconString = 'assets/images/icon-google-analytics.png';
-        break;
-      case 'powerpoint':
-        iconString = 'assets/images/icon-powerpoint.png';
-        break;
-      case 'rocketry':
-        iconString = 'assets/images/icon-rocketry.png';
-        break;
-      case 'tdd':
-        iconString = 'assets/images/icon-tdd.png';
-        break;
-      case 'test driven development':
-        iconString = 'assets/images/icon-tdd.png';
-        break;
-      case 'word':
-        iconString = 'assets/images/icon-word.png';
-        break;
-      case 'facebook':
-        iconString = 'assets/images/icon-facebook.png';
-        break;
-      case 'facebook marketing':
-        iconString = 'assets/images/icon-facebook.png';
-        break;
-      case 'instagram':
-        iconString = 'assets/images/icon-instagram.png';
-        break;
-      case 'instagram marketing':
-        iconString = 'assets/images/icon-instagram.png';
-        break;
-      default:
-        iconString = 'assets/images/icon-chip.png';
-      }
-      return iconString;
-    }
-
+  constructor(
+    public navCtrl: NavController
+  ) {
     this.example1SwipeOptions = {
       loop: true,
       autoplay: 2000,
@@ -382,6 +255,144 @@ export class HomePage {
         ]
       }
     ];
+  }
+
+  goToStoriesPage(data) {
+    console.log(data);
+    this.navCtrl.push(StoriesPage, data);
+  }
+
+  returnIcon(techName: string): string {
+    let iconString: string;
+    switch(techName.toLowerCase()) {
+    case 'angular':
+      iconString = 'assets/images/icon-angular.png';
+      break;
+    case 'angularjs':
+      iconString = 'assets/images/icon-angular.png';
+      break;
+    case 'angular 1':
+      iconString = 'assets/images/icon-angular.png';
+      break;
+    case 'angular 2':
+      iconString = 'assets/images/icon-angular.png';
+      break;
+    case 'angular 4':
+      iconString = 'assets/images/icon-angular.png';
+      break;
+    case 'django':
+      iconString = 'assets/images/icon-django.png';
+      break;
+    case 'flask':
+      iconString = 'assets/images/icon-flask.png';
+      break;
+    case 'ionic':
+      iconString = 'assets/images/icon-ionic.png';
+      break;
+    case 'ionic 1':
+      iconString = 'assets/images/icon-ionic.png';
+      break;
+    case 'ionic 2':
+      iconString = 'assets/images/icon-ionic.png';
+      break;
+    case 'ionic 3':
+      iconString = 'assets/images/icon-ionic.png';
+      break;
+    case 'rails':
+      iconString = 'assets/images/icon-ruby.png';
+      break;
+    case 'ruby on rails':
+      iconString = 'assets/images/icon-ruby.png';
+      break;
+    case 'tornado':
+      iconString = 'assets/images/icon-python.png';
+      break;
+    case 'wordpress':
+      iconString = 'assets/images/icon-wordpress.png';
+      break;
+    case 'css':
+      iconString = 'assets/images/icon-css.png';
+      break;
+    case 'erlang':
+      iconString = 'assets/images/icon-erlang.png';
+      break;
+    case 'html':
+      iconString = 'assets/images/icon-html.png';
+      break;
+    case 'javascript':
+      iconString = 'assets/images/icon-javascript.png';
+      break;
+    case 'php':
+      iconString = 'assets/images/icon-php.png';
+      break;
+    case 'python':
+      iconString = 'assets/images/icon-python.png';
+      break;
+    case 'ruby':
+      iconString = 'assets/images/icon-ruby.png';
+      break;
+    case 'rust':
+      iconString = 'assets/images/icon-rust.png';
+      break;
+    case 'sass':
+      iconString = 'assets/images/icon-sass.png';
+      break;
+    case 'scss':
+      iconString = 'assets/images/icon-sass.png';
+      break;
+    case 'sql':
+      iconString = 'assets/images/icon-sql.png';
+      break;
+    case 'typescript':
+      iconString = 'assets/images/icon-typescript.png';
+      break;
+    case 'mysql':
+      iconString = 'assets/images/icon-mysql.png';
+      break;
+    case 'engineering':
+      iconString = 'assets/images/icon-engineering.png';
+      break;
+    case 'excel':
+      iconString = 'assets/images/icon-excel.png';
+      break;
+    case 'google analytics':
+      iconString = 'assets/images/icon-google-analytics.png';
+      break;
+    case 'powerpoint':
+      iconString = 'assets/images/icon-powerpoint.png';
+      break;
+    case 'rocketry':
+      iconString = 'assets/images/icon-rocketry.png';
+      break;
+    case 'tdd':
+      iconString = 'assets/images/icon-tdd.png';
+      break;
+    case 'test driven development':
+      iconString = 'assets/images/icon-tdd.png';
+      break;
+    case 'word':
+      iconString = 'assets/images/icon-word.png';
+      break;
+    case 'facebook':
+      iconString = 'assets/images/icon-facebook.png';
+      break;
+    case 'facebook marketing':
+      iconString = 'assets/images/icon-facebook.png';
+      break;
+    case 'instagram':
+      iconString = 'assets/images/icon-instagram.png';
+      break;
+    case 'instagram marketing':
+      iconString = 'assets/images/icon-instagram.png';
+      break;
+    default:
+      iconString = 'assets/images/icon-chip.png';
+    }
+    return iconString;
+  }
+
+  scrollToTop() {
+    this.content.scrollToTop();
   }
 
 }

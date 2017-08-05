@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { StoriesPage } from '../pages/stories/stories';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,7 +16,8 @@ import {KSSwiperModule} from '../../node_modules/angular2-swiper/dist/ks-swiper.
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    StoriesPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import {KSSwiperModule} from '../../node_modules/angular2-swiper/dist/ks-swiper.
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    StoriesPage
   ],
   providers: [
     StatusBar,
