@@ -17,18 +17,18 @@ export class HomePage {
   @ViewChild(Content) content: Content;
   latest: Array<{
     post: { title: string, description: string, cover_photo_md_url: string },
-    user: { name: string, description_short: string, profile_photo_sm_url: string}
+    user: { name: string, description_short: string, description_full: string, profile_photo_sm_url: string}
   }>;
 
   popular: Array<{
     post: { title: string, description: string, cover_photo_md_url: string, like_count: number, comment_count: number },
-    user: { name: string, description_short: string, profile_photo_sm_url: string }
+    user: { name: string, description_short: string, description_full: string, profile_photo_sm_url: string }
   }>;
 
   stacks: Array<{
     company: { name: string, tags: Array<string>, description: string },
     technologies: Array<{ name: string, category: string }>,
-    user: { name: string, description_short: string, profile_photo_sm_url: string }
+    user: { name: string, description_short: string, description_full: string, profile_photo_sm_url: string }
   }>;
 
   jobs: Array<{
@@ -60,6 +60,7 @@ export class HomePage {
         user: {
           name: 'Elon Musk',
           description_short: 'CEO of Tesla, SpaceX, and more!',
+          description_full: 'Lorem ipsum dolor sit amet, no propriae adipisci pro, populo senserit scripserit in ius, eu munere malorum repudiandae mea. Noster interpretaris mel ut, sea id aliquip torquatos, usu an appetere efficiantur. Cum ex mandamus adversarium. Te sit mundi audiam tractatos.',
           profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg'
         }
       },
@@ -72,6 +73,7 @@ export class HomePage {
         user: {
           name: 'Peter Thiel',
           description_short: 'CEO of Palantir and other stuff.',
+          description_full: 'Lorem ipsum dolor sit amet, no propriae adipisci pro, populo senserit scripserit in ius, eu munere malorum repudiandae mea. Noster interpretaris mel ut, sea id aliquip torquatos, usu an appetere efficiantur. Cum ex mandamus adversarium. Te sit mundi audiam tractatos.',
           profile_photo_sm_url: 'http://static4.bornrichimages.com/cdn2/500/500/91/c/wp-content/uploads/2014/09/ptr_thumb.jpg'
         }
       },
@@ -84,6 +86,7 @@ export class HomePage {
         user: {
           name: 'Jeff Bezos',
           description_short: 'CEO of Amazon baby, big jungle~',
+          description_full: 'Lorem ipsum dolor sit amet, no propriae adipisci pro, populo senserit scripserit in ius, eu munere malorum repudiandae mea. Noster interpretaris mel ut, sea id aliquip torquatos, usu an appetere efficiantur. Cum ex mandamus adversarium. Te sit mundi audiam tractatos.',
           profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/669103856106668033/UF3cgUk4.jpg'
         }
       },
@@ -101,6 +104,7 @@ export class HomePage {
         user: {
           name: 'Thomas Edison',
           description_short: 'CEO of Edison Electric',
+          description_full: 'Lorem ipsum dolor sit amet, no propriae adipisci pro, populo senserit scripserit in ius, eu munere malorum repudiandae mea. Noster interpretaris mel ut, sea id aliquip torquatos, usu an appetere efficiantur. Cum ex mandamus adversarium. Te sit mundi audiam tractatos.',
           profile_photo_sm_url: 'http://s3.amazonaws.com/production.mediajoint.prx.org/public/piece_images/323254/Thomas_Edison_small.jpg'
         }
       },
@@ -115,6 +119,7 @@ export class HomePage {
         user: {
           name: 'Nikola Tesla',
           description_short: 'CEO of Brooksfield Electric',
+          description_full: 'Lorem ipsum dolor sit amet, no propriae adipisci pro, populo senserit scripserit in ius, eu munere malorum repudiandae mea. Noster interpretaris mel ut, sea id aliquip torquatos, usu an appetere efficiantur. Cum ex mandamus adversarium. Te sit mundi audiam tractatos.',
           profile_photo_sm_url: 'https://s3.amazonaws.com/teleautomaton-images/Nikola_Teslabig.jpg'
         }
       },
@@ -129,6 +134,7 @@ export class HomePage {
         user: {
           name: 'Michael Faraday',
           description_short: 'Inventor of Light',
+          description_full: 'Lorem ipsum dolor sit amet, no propriae adipisci pro, populo senserit scripserit in ius, eu munere malorum repudiandae mea. Noster interpretaris mel ut, sea id aliquip torquatos, usu an appetere efficiantur. Cum ex mandamus adversarium. Te sit mundi audiam tractatos.',
           profile_photo_sm_url: 'https://s-media-cache-ak0.pinimg.com/736x/64/a5/d9/64a5d944615d871f4933bf93235b8e7e--michael-faraday-michael-okeefe.jpg'
         }
       },
@@ -162,6 +168,7 @@ export class HomePage {
         user: {
           name: 'Joseph Choi',
           description_short: 'CTO of Doc&Me',
+          description_full: 'Lorem ipsum dolor sit amet, no propriae adipisci pro, populo senserit scripserit in ius, eu munere malorum repudiandae mea. Noster interpretaris mel ut, sea id aliquip torquatos, usu an appetere efficiantur. Cum ex mandamus adversarium. Te sit mundi audiam tractatos.',
           profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg'
         }
       },
@@ -180,6 +187,7 @@ export class HomePage {
         user: {
           name: 'Steve Jobs',
           description_short: 'CTO of Fruit Inc.',
+          description_full: 'Lorem ipsum dolor sit amet, no propriae adipisci pro, populo senserit scripserit in ius, eu munere malorum repudiandae mea. Noster interpretaris mel ut, sea id aliquip torquatos, usu an appetere efficiantur. Cum ex mandamus adversarium. Te sit mundi audiam tractatos.',
           profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg'
         }
       },
@@ -202,20 +210,11 @@ export class HomePage {
         user: {
           name: 'Steve Wozniak',
           description_short: 'COO of Fruit Inc.',
+          description_full: 'Lorem ipsum dolor sit amet, no propriae adipisci pro, populo senserit scripserit in ius, eu munere malorum repudiandae mea. Noster interpretaris mel ut, sea id aliquip torquatos, usu an appetere efficiantur. Cum ex mandamus adversarium. Te sit mundi audiam tractatos.',
           profile_photo_sm_url: 'https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_400x400.jpg'
         }
       }
     ];
-
-
-    // jobs: Array<{
-    //   title: string,
-    //   description: string,
-    //   tags: Array<string>,
-    //   company: { name: string, description: string, company_logo_sm_url: string },
-    //   skills: Array<{ name: string, level: string }>,
-    //   user: { name: string, description_short: string, profile_photo_sm_url: string }
-    // }>;
 
     this.jobs = [
       {
@@ -267,8 +266,7 @@ export class HomePage {
   }
 
   goToStory(data) {
-    console.log(data);
-    this.navCtrl.push(StoryPage, data);
+    this.navCtrl.push(StoryPage, {data: data});
   }
 
   goToStoriesPage(data) {

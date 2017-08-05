@@ -7,21 +7,51 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Story</ion-title>
+    <ion-title>{{story.post.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <ion-card>
-    <ion-card-header>
-      Work in Progress
-    </ion-card-header>
+    <img [src]="story.post.cover_photo_md_url"/>
     <ion-card-content>
-      Details of the startup story will go here.
+      <ion-card-title class="align-left">
+        {{story.post.title}}
+      </ion-card-title>
+      <p class="align-left">
+        {{story.post.description}}
+      </p>
+      <ion-list no-lines>
+        <ion-item class="remove-padding">
+          <ion-avatar item-start>
+            <img [src]="story.user.profile_photo_sm_url">
+          </ion-avatar>
+          <h2>{{story.user.name}}</h2>
+          <p>{{story.user.description_short}}</p>
+        </ion-item>
+      </ion-list>
+      <p class="about-the-label">About the interviewee</p>
+      <p>{{story.user.description_full || 'No full length description available'}}</p>
     </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{story.post.like_count || 0}} Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{story.post.comment_count || 0}} Comments</div>
+        </button>
+      </ion-col>
+    </ion-row>
+
   </ion-card>
 
 </ion-content>

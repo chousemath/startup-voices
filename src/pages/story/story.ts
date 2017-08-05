@@ -14,8 +14,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'story.html',
 })
 export class StoryPage {
-
+  story: {
+    post: { title: string, description: string, cover_photo_md_url: string, like_count: number, comment_count: number },
+    user: { name: string, description_short: string, profile_photo_sm_url: string }
+  };
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.story = navParams.get('data');
+    console.log(this.story);
   }
 
   ionViewDidLoad() {
