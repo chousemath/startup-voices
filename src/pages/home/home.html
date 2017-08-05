@@ -17,12 +17,12 @@
       <ion-slide *ngFor="let item of latest">
         <div class="ion-card-container">
           <ion-card>
-            <img [src]="item.post.cover_photo_md_url" (click)="goToStoriesPage(item)"/>
+            <img [src]="item.post.cover_photo_md_url" (click)="goToStory(item)"/>
             <ion-card-content>
-              <ion-card-title class="align-left" (click)="goToStoriesPage(item)">
+              <ion-card-title class="align-left" (click)="goToStory(item)">
                 {{item.post.title}}
               </ion-card-title>
-              <p class="align-left" (click)="goToStoriesPage(item)">
+              <p class="align-left" (click)="goToStory(item)">
                 {{item.post.description.slice(0, 90)}} <span *ngIf="item.post.description.length > 91">...</span>
               </p>
               <ion-list no-lines>
@@ -54,12 +54,12 @@
     <div class="custom-divider-1"></div>
   </div>
   <ion-card *ngFor="let item of popular">
-    <img [src]="item.post.cover_photo_md_url" (click)="goToStoriesPage(item)"/>
+    <img [src]="item.post.cover_photo_md_url" (click)="goToStory(item)"/>
     <ion-card-content>
-      <ion-card-title class="align-left" (click)="goToStoriesPage(item)">
+      <ion-card-title class="align-left" (click)="goToStory(item)">
         {{item.post.title}}
       </ion-card-title>
-      <p class="align-left" (click)="goToStoriesPage(item)">
+      <p class="align-left" (click)="goToStory(item)">
         {{item.post.description.slice(0, 80)}} <span *ngIf="item.post.description.length > 81">...</span>
       </p>
       <ion-list no-lines>
@@ -101,13 +101,13 @@
   </div>
   <ion-card *ngFor="let item of stacks">
     <ion-card-content>
-      <ion-card-title>
+      <ion-card-title (click)="goToStack(item)">
         {{item.company.name}}
       </ion-card-title>
-      <p>
+      <p (click)="goToStack(item)">
         <ion-badge class="tag-spacing" *ngFor="let tag of item.company.tags">{{tag}}</ion-badge>
       </p>
-      <p>
+      <p (click)="goToStack(item)">
         {{item.company.description}}
       </p>
       <ion-list no-lines>
@@ -122,7 +122,7 @@
     </ion-card-content>
     <ks-swiper-container [options]="example1SwipeOptions">
       <ks-swiper-slide *ngFor="let technology of item.technologies" class="slider-background">
-        <ion-row>
+        <ion-row (click)="goToStack(item)">
           <ion-col>
             <button ion-button clear small color="dark">
               <img [src]="returnIcon(technology.name)" class="tech-icon">
@@ -135,7 +135,7 @@
   </ion-card>
 
   <div class="more-button-container">
-    <button ion-button icon-left>
+    <button ion-button icon-left (click)="goToStacksPage(stacks)">
       <ion-icon name="add"></ion-icon>
       See more tech stacks!
     </button>

@@ -1,7 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Content } from 'ionic-angular';
 import {KSSwiperSlide, KSSwiperContainer} from '../../../node_modules/angular2-swiper/dist/ks-swiper';
+import { StoryPage } from '../story/story';
 import { StoriesPage } from '../stories/stories';
+import { StackPage } from '../stack/stack';
+import { StacksPage } from '../stacks/stacks';
 
 @Component({
   selector: 'page-home',
@@ -257,9 +260,24 @@ export class HomePage {
     ];
   }
 
+  goToStory(data) {
+    console.log(data);
+    this.navCtrl.push(StoryPage, data);
+  }
+
   goToStoriesPage(data) {
     console.log(data);
     this.navCtrl.push(StoriesPage, data);
+  }
+
+  goToStack(data) {
+    console.log(data);
+    this.navCtrl.push(StackPage, data);
+  }
+
+  goToStacksPage(data) {
+    console.log(data);
+    this.navCtrl.push(StacksPage, data);
   }
 
   returnIcon(techName: string): string {

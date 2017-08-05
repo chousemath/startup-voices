@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { StoriesPage } from '../pages/stories/stories';
+import { StacksPage } from '../pages/stacks/stacks';
 
 @Component({
   templateUrl: 'app.html'
@@ -31,7 +32,8 @@ export class MyApp {
     ];
 
     this.pagesToPush = [
-      { title: 'Stories', component: StoriesPage }
+      { title: 'Stories', component: StoriesPage },
+      { title: 'Tech Stacks', component: StacksPage }
     ]
 
   }
