@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { StoriesPage } from '../pages/stories/stories';
 import { StacksPage } from '../pages/stacks/stacks';
+import { JobsPage } from '../pages/jobs/jobs';
 
 @Component({
   templateUrl: 'app.html'
@@ -33,7 +34,8 @@ export class MyApp {
 
     this.pagesToPush = [
       { title: 'Stories', component: StoriesPage },
-      { title: 'Tech Stacks', component: StacksPage }
+      { title: 'Tech Stacks', component: StacksPage },
+      { title: 'Foreigner-Friendly Jobs', component: JobsPage }
     ]
 
   }

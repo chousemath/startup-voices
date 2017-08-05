@@ -9,6 +9,8 @@ import { StoryPage } from '../pages/story/story';
 import { StoriesPage } from '../pages/stories/stories';
 import { StackPage } from '../pages/stack/stack';
 import { StacksPage } from '../pages/stacks/stacks';
+import { JobPage } from '../pages/job/job';
+import { JobsPage } from '../pages/jobs/jobs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,7 +25,9 @@ import {KSSwiperModule} from '../../node_modules/angular2-swiper/dist/ks-swiper.
     StoryPage,
     StoriesPage,
     StackPage,
-    StacksPage
+    StacksPage,
+    JobPage,
+    JobsPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import {KSSwiperModule} from '../../node_modules/angular2-swiper/dist/ks-swiper.
     StoryPage,
     StoriesPage,
     StackPage,
-    StacksPage
+    StacksPage,
+    JobPage,
+    JobsPage
   ],
   providers: [
     StatusBar,

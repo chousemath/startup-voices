@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <div padding>
+  <div padding class="main-section-label">
     <h4>Latest Stories</h4>
     <div class="custom-divider-0"></div>
   </div>
@@ -49,7 +49,7 @@
   </div>
 
 
-  <div padding>
+  <div padding class="main-section-label">
     <h4>Popular Stories</h4>
     <div class="custom-divider-1"></div>
   </div>
@@ -88,14 +88,14 @@
     </ion-row>
   </ion-card>
 
-  <div class="more-button-container">
+  <div class="more-button-container more-button-spacing">
     <button ion-button icon-left (click)="goToStoriesPage({})">
       <ion-icon name="add"></ion-icon>
-      See more popular stories!
+      See more popular stories
     </button>
   </div>
 
-  <div padding>
+  <div padding class="main-section-label">
     <h4>Startup Tech Stacks</h4>
     <div class="custom-divider-1"></div>
   </div>
@@ -120,9 +120,9 @@
         </ion-item>
       </ion-list>
     </ion-card-content>
-    <ks-swiper-container [options]="example1SwipeOptions">
+    <ks-swiper-container [options]="example1SwipeOptions" (click)="goToStack(item)">
       <ks-swiper-slide *ngFor="let technology of item.technologies" class="slider-background">
-        <ion-row (click)="goToStack(item)">
+        <ion-row>
           <ion-col>
             <button ion-button clear small color="dark">
               <img [src]="returnIcon(technology.name)" class="tech-icon">
@@ -134,30 +134,31 @@
     </ks-swiper-container>
   </ion-card>
 
-  <div class="more-button-container">
+  <div class="more-button-container more-button-spacing">
     <button ion-button icon-left (click)="goToStacksPage(stacks)">
       <ion-icon name="add"></ion-icon>
-      See more tech stacks!
+      See more tech stacks
     </button>
   </div>
 
-  <div padding>
+  <div padding class="main-section-label">
     <h4>Foreigner-Friendly Jobs</h4>
     <div class="custom-divider-1"></div>
   </div>
 
   <ion-card *ngFor="let item of jobs">
     <ion-card-content>
-      <ion-card-title>
+      <ion-card-title (click)="goToJob(item)">
         {{item.title}}
       </ion-card-title>
-      <p>
+      <p (click)="goToJob(item)">
         <ion-badge class="tag-spacing" *ngFor="let tag of item.tags">{{tag}}</ion-badge>
       </p>
-      <p>
+      <p (click)="goToJob(item)">
         {{item.description}}
       </p>
       <ion-list no-lines>
+
         <ion-item class="remove-padding">
           <ion-avatar item-start>
             <img [src]="item.company.company_logo_sm_url">
@@ -165,9 +166,25 @@
           <h2>{{item.company.name}}</h2>
           <p>{{item.company.description}}</p>
         </ion-item>
+
+        <ion-item class="remove-padding" *ngIf="item.visa_sponsored">
+          <ion-avatar item-start>
+            <img src="assets/images/icon-visa-true.png">
+          </ion-avatar>
+          <p>Visa sponsorship available</p>
+        </ion-item>
+
+        <ion-item class="remove-padding" *ngIf="!item.visa_sponsored">
+          <ion-avatar item-start>
+            <img src="assets/images/icon-visa-false.png">
+          </ion-avatar>
+          <p>Visa sponsorship <span class="un">un</span>available</p>
+          <p>Have a beer my friend ~</p>
+        </ion-item>
+
       </ion-list>
     </ion-card-content>
-    <ks-swiper-container [options]="example1SwipeOptions">
+    <ks-swiper-container [options]="example1SwipeOptions" (click)="goToJob(item)">
       <ks-swiper-slide *ngFor="let skill of item.skills" class="slider-background">
         <ion-row>
           <ion-col>
@@ -181,10 +198,10 @@
     </ks-swiper-container>
   </ion-card>
 
-  <div class="more-button-container">
-    <button ion-button icon-left>
+  <div class="more-button-container more-button-spacing">
+    <button ion-button icon-left (click)="goToJobsPage(jobs)">
       <ion-icon name="add"></ion-icon>
-      See more job openings!
+      See more job openings
     </button>
   </div>
 
@@ -193,6 +210,7 @@
     (ionInput)="getItems($event)">
   </ion-searchbar>
 
-  <button ion-button full color="dark" (click)="scrollToTop()">Back to top</button>
+  <button ion-button full (click)="scrollToTop()">Search</button>
 
+  <button ion-button full color="dark" (click)="scrollToTop()">Back to top</button>
 </ion-content>

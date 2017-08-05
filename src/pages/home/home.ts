@@ -5,6 +5,8 @@ import { StoryPage } from '../story/story';
 import { StoriesPage } from '../stories/stories';
 import { StackPage } from '../stack/stack';
 import { StacksPage } from '../stacks/stacks';
+import { JobPage } from '../job/job';
+import { JobsPage } from '../jobs/jobs';
 
 @Component({
   selector: 'page-home',
@@ -33,6 +35,7 @@ export class HomePage {
     title: string,
     description: string,
     tags: Array<string>,
+    visa_sponsored: boolean,
     company: { name: string, description: string, company_logo_sm_url: string },
     skills: Array<{ name: string, level: string }>
   }>;
@@ -219,6 +222,7 @@ export class HomePage {
         title: 'Senior Ruby Developer',
         description: 'We require a senior level ruby on rails developer to build our SaaS product',
         tags: ['ruby', 'engineering', 'senior'],
+        visa_sponsored: false,
         company: { name: 'RubyMine', description: 'We mine rubies like dwarves, we harvest the money like it is our job.', company_logo_sm_url: 'https://s-media-cache-ak0.pinimg.com/236x/9e/1e/f2/9e1ef294cdba515c09d013d37ec7a231--geometric-logo-geometric-designs.jpg' },
         skills: [
           { name: 'Word', level: 'experienced' },
@@ -233,6 +237,7 @@ export class HomePage {
         title: 'Head of Marketing',
         description: 'We require a senior level marketer who will take us to the next level',
         tags: ['marketing', 'communications', 'teamwork'],
+        visa_sponsored: true,
         company: { name: 'Eggzell', description: 'We are awesome and we know it.', company_logo_sm_url: 'https://s-media-cache-ak0.pinimg.com/736x/41/1a/48/411a4835d38ff899e55ce2802b08329c.jpg' },
         skills: [
           { name: 'instagram marketing', level: 'expert' },
@@ -247,6 +252,7 @@ export class HomePage {
         title: 'Rocket Engineer',
         description: 'We need someone to build us a freakin rocket',
         tags: ['rocket', 'space', 'amazing'],
+        visa_sponsored: true,
         company: { name: 'SpaceX', description: 'To infinity, and beyond!', company_logo_sm_url: 'http://foundersguide.com/wp-content/uploads/2015/07/Fotolia_83951882_XS.jpg' },
         skills: [
           { name: 'rocketry', level: 'expert' },
@@ -278,6 +284,16 @@ export class HomePage {
   goToStacksPage(data) {
     console.log(data);
     this.navCtrl.push(StacksPage, data);
+  }
+
+  goToJob(data) {
+    console.log(data);
+    this.navCtrl.push(JobPage, data);
+  }
+
+  goToJobsPage(data) {
+    console.log(data);
+    this.navCtrl.push(JobsPage, data);
   }
 
   returnIcon(techName: string): string {
