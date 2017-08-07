@@ -13,13 +13,35 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-card>
-    <ion-card-header>
-      Work in Progress
-    </ion-card-header>
     <ion-card-content>
-      Details of the startup's technology stack will go here.
+      <ion-card-title>
+        {{stack.company.name}}
+      </ion-card-title>
+      <p>
+        <ion-badge class="tag-spacing" *ngFor="let tag of stack.company.tags">{{tag}}</ion-badge>
+      </p>
+      <p>
+        {{stack.company.description}}
+      </p>
+      <ion-list no-lines>
+        <ion-item class="remove-padding">
+          <ion-avatar item-start>
+            <img [src]="stack.user.profile_photo_sm_url">
+          </ion-avatar>
+          <h2>{{stack.user.name}}</h2>
+          <p>{{stack.user.description_short}}</p>
+        </ion-item>
+
+        <ion-item class="remove-padding" *ngFor="let technology of stack.technologies">
+          <ion-avatar item-start>
+            <img [src]="returnIcon(technology.name)">
+          </ion-avatar>
+          <h2>{{technology.name}}</h2>
+          <p>{{technology.category}}</p>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 </ion-content>

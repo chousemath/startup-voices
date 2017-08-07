@@ -275,8 +275,7 @@ export class HomePage {
   }
 
   goToStack(data) {
-    console.log(data);
-    this.navCtrl.push(StackPage, data);
+    this.navCtrl.push(StackPage, {data: data});
   }
 
   goToStacksPage(data) {
